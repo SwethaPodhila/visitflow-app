@@ -8,7 +8,7 @@
     <!-- Visitors table -->
     <div class="table-container">
 
-        <table>
+        <table>f
             <thead>
                 <tr>
                     <th>Visitor</th>
@@ -80,7 +80,7 @@
         </table>
 
         <!-- Empty state -->
-        <div class="empty-state" *ngIf="visits.length === 0">
+        <div class="empty-state" *ngIf="!visits || visits.length === 0">
             No visitors registered yet.
         </div>
 
