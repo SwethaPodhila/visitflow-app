@@ -27,7 +27,7 @@ export class StatusBoardComponent implements OnInit {
 
   // Dashboard nunchi visitor records receive chestham
   // Visitors route lo parent input undadu
-  @Input() visits: VisitRecord[] | undefined = [];
+  @Input() visits?: VisitRecord[];
 
   // Status change request ni parent ki send chestham
   @Output() transitionRequested =
