@@ -1,0 +1,231 @@
+:host {
+    display: block;
+    width: 100%;
+}
+
+* {
+    box-sizing: border-box;
+}
+
+.main-header {
+    width: 100%;
+    min-height: 105px;
+
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 20px;
+
+    padding: 5px 0 24px;
+    margin-bottom: 26px;
+
+    border-bottom: 1px solid #e5eaf1;
+}
+
+/* LEFT SECTION */
+
+.header-left {
+    display: flex;
+    flex-direction: column;
+    gap: 7px;
+}
+
+.breadcrumb {
+    display: flex;
+    align-items: center;
+    gap: 9px;
+
+    font-size: 11px;
+    font-weight: 500;
+    color: #94a3b8;
+    letter-spacing: 0.2px;
+}
+
+.breadcrumb-separator {
+    color: #cbd5e1;
+}
+
+.breadcrumb-current {
+    color: #3b82f6;
+    font-weight: 600;
+}
+
+.header-title {
+    margin: 0;
+
+    color: #172238;
+    font-size: 25px;
+    line-height: 1.3;
+    font-weight: 750;
+    letter-spacing: -0.6px;
+}
+
+.header-subtitle {
+    margin: 0;
+
+    color: #7b8799;
+    font-size: 13px;
+    line-height: 1.5;
+    font-weight: 400;
+}
+
+/* RIGHT SECTION */
+
+.header-right {
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    flex-wrap: wrap;
+    gap: 12px;
+}
+
+/* DATE */
+
+.date-display {
+    min-height: 40px;
+    display: flex;
+    align-items: center;
+    gap: 9px;
+
+    padding: 0 13px;
+
+    background: #ffffff;
+    border: 1px solid #e2e8f0;
+    border-radius: 8px;
+
+    color: #526176;
+    font-size: 12px;
+    font-weight: 500;
+
+    box-shadow: 0 1px 2px rgba(15, 23, 42, 0.03);
+}
+
+.calendar-icon {
+    width: 16px;
+    height: 16px;
+
+    fill: none;
+    stroke: #64748b;
+    stroke-width: 1.7;
+    stroke-linecap: round;
+    stroke-linejoin: round;
+}
+
+/* PRIMARY BUTTON */
+.btn-primary {
+    min-height: 43px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 9px;
+
+    padding: 0 19px;
+
+    background: linear-gradient(135deg, #315cbb, #24458f);
+    color: #ffffff;
+
+    border: 1px solid #294f9f;
+    border-radius: 9px;
+
+    font-family: inherit;
+    font-size: 13px;
+    font-weight: 600;
+
+    cursor: pointer;
+
+    box-shadow: 0 4px 10px rgba(36, 69, 143, 0.18);
+    transition: all 0.2s ease;
+}
+
+.btn-primary:hover {
+    background: linear-gradient(135deg, #274fa8, #1c3979);
+    box-shadow: 0 5px 14px rgba(36, 69, 143, 0.25);
+    transform: translateY(-1px);
+}
+
+.btn-primary:active {
+    transform: translateY(0);
+}
+
+.plus-icon {
+    font-size: 19px;
+    font-weight: 400;
+    line-height: 1;
+}
+
+/* RESPONSIVE */
+
+
+/* RESPONSIVE ONLY - DESKTOP CSS UNCHANGED */
+
+@media (max-width: 768px) {
+    .main-header {
+        min-height: auto;
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 16px;
+        padding-bottom: 18px;
+    }
+
+    .header-left {
+        width: 100%;
+    }
+
+    .header-right {
+        width: 100%;
+        justify-content: flex-start;
+        flex-wrap: wrap;
+    }
+}
+
+@media (max-width: 480px) {
+    .main-header {
+        gap: 14px;
+        margin-bottom: 20px;
+    }
+
+    .header-title {
+        font-size: 21px;
+    }
+
+    .header-subtitle {
+        font-size: 12px;
+    }
+
+    .header-right {
+        display: flex;
+        flex-direction: column;
+        align-items: stretch;
+        gap: 10px;
+    }
+
+    .date-display,
+    .btn-primary {
+        width: 100%;
+        min-height: 42px;
+    }
+
+    .date-display {
+        justify-content: flex-start;
+    }
+}
+
+@media (max-width: 350px) {
+    .header-title {
+        font-size: 19px;
+    }
+
+    .header-subtitle {
+        font-size: 11px;
+    }
+
+    .date-display {
+        font-size: 10px;
+    }
+
+    .btn-primary {
+        font-size: 11px;
+        padding: 0 10px;
+    }
+}

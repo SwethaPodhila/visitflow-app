@@ -1,0 +1,88 @@
+<div class="status-board">
+
+    <div class="board-header">
+        <h2>Visitor Status Board</h2>
+        <p>Manage visitor entries and their status</p>
+    </div>
+
+    <!-- Visitors table -->
+    <div class="table-container">
+
+        <table>
+            <thead>
+                <tr>
+                    <th>Visitor</th>
+                    <th>Contact</th>
+                    <th>Purpose</th>
+                    <th>Host ID</th>
+                    <th>Status</th>
+                    <th>Actions</th>
+                </tr>
+            </thead>
+
+            <tbody>
+
+                <!-- Display visitors -->
+                <tr *ngFor="let visit of visits">
+
+                    <td class="visitor-name">{{ visit.visitor.name }}</td>
+
+                    <td>{{ visit.visitor.contact }}</td>
+
+                    <td>{{ visit.purpose }}</td>
+
+                    <td>{{ visit.hostEmployee }}</td>
+
+                    <!-- Status chip -->
+                    <td>
+                        <span class="status" [ngClass]="visit.state.toLowerCase()">
+
+                            {{ visit.state }}
+
+                        </span>
+                    </td>
+
+                    <!-- Actions based on current status -->
+                    <td class="actions">
+
+                        <ng-container [ngSwitch]="visit.state">
+
+                            <!-- PENDING -->
+                            <ng-container *ngSwitchCase="'PENDING'">
+                                <button class="approve" (click)="approve(visit)">
+                                    Approve
+                                </button>
+
+                                <button class="reject" (click)="reject(visit)">
+                                    Reject
+                                </button>
+                            </ng-container>
+
+                            <!-- APPROVED -->
+                            <button *ngSwitchCase="'APPROVED'" class="check-in" (click)="checkIn(visit)">
+                                Check In
+                            </button>
+
+                            <!-- CHECKED_IN -->
+                            <button *ngSwitchCase="'CHECKED_IN'" class="check-out" (click)="checkOut(visit)">
+                                Check Out
+                            </button>
+
+                            <!-- DENIED and CHECKED_OUT have no actions -->
+
+                        </ng-container>
+
+                    </td>
+
+                </tr>
+
+            </tbody>
+        </table>
+
+        <!-- Empty state -->
+        <div class="empty-state" *ngIf="visits.length === 0">
+            No visitors registered yet.
+        </div>
+
+    </div>
+</div>

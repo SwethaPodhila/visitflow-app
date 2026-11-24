@@ -1,0 +1,204 @@
+<div class="wizard">
+
+    <div class="wizard-header">
+        <div>
+            <h2>Register Visitor</h2>
+            <p>Complete the 3 steps to register a visitor.</p>
+        </div>
+    </div>
+
+    <!-- Progress indicator -->
+    <div class="progress-steps">
+
+        <div class="step" [class.active]="currentStep >= 1">
+            <span>1</span>
+            <p>Visitor Details</p>
+        </div>
+
+        <div class="progress-line"></div>
+
+        <div class="step" [class.active]="currentStep >= 2">
+            <span>2</span>
+            <p>Visit Details</p>
+        </div>
+
+        <div class="progress-line"></div>
+
+        <div class="step" [class.active]="currentStep >= 3">
+            <span>3</span>
+            <p>Review</p>
+        </div>
+
+    </div>
+
+    <!-- STEP 1: Visitor Details -->
+    <section *ngIf="currentStep === 1">
+
+        <h3>Visitor Information</h3>
+
+        <div class="form-group">
+            <label>Visitor Name *</label>
+
+            <input type="text" [(ngModel)]="visitorName" name="visitorName" placeholder="Enter visitor name">
+
+            <small class="error" *ngIf="visitorName.trim().length > 0 && !isNameValid">
+                Name must contain at least 3 characters.
+            </small>
+
+            <small class="error" *ngIf="visitorName.length === 0">
+                Name is required.
+            </small>
+        </div>
+
+        <div class="form-group">
+            <label>Contact Number *</label>
+
+            <input type="tel" [(ngModel)]="contact" name="contact" placeholder="9876543210 or +919876543210">
+
+            <small class="hint">
+                Enter 10 digits or +91 followed by 10 digits.
+            </small>
+
+            <small class="error" *ngIf="contact.length > 0 && !isContactValid">
+                Invalid contact. Use 10 digits or +91 followed by 10 digits.
+            </small>
+
+            <small class="error" *ngIf="contact.length === 0">
+                Contact number is required.
+            </small>
+        </div>
+
+        <div class="actions">
+            <button class="primary-btn" [disabled]="!isStep1Valid" (click)="nextStep()">
+                Next
+            </button>
+        </div>
+
+    </section>
+
+    <!-- STEP 2: Visit Details -->
+    <section *ngIf="currentStep === 2">
+
+        <h3>Visit Information</h3>
+
+        <div class="form-group">
+            <label>Purpose of Visit *</label>
+
+            <select [(ngModel)]="purpose" name="purpose">
+                <option value="">Select purpose</option>
+                <option value="Meeting">Meeting</option>
+                <option value="Interview">Interview</option>
+                <option value="Delivery">Delivery</option>
+                <option value="Maintenance">Maintenance</option>
+            </select>
+        </div>
+
+        <div class="form-group">
+            <label>Search and Select Host *</label>
+
+            <input type="text" [(ngModel)]="hostSearch" name="hostSearch" (input)="onHostSearchChange()"
+                placeholder="Type host name...">
+
+            <!-- Search results -->
+
+            <div class="host-results" *ngIf="hostSearch.trim().length > 0 && !selectedHostEmployee">
+
+                <button type="button" class="host-option" *ngFor="let host of filteredHosts" (click)="selectHost(host)">
+
+                    <span>{{ host.name }}</span>
+                    <small>{{ host.id }}</small>
+
+                </button>
+
+                <p class="empty-message" *ngIf="filteredHosts.length === 0">
+                    No hosts found.
+                </p>
+
+            </div>
+
+
+            <p class="selected-host" *ngIf="selectedHost">
+                Selected host: {{ selectedHost.name }}
+            </p>
+        </div>
+
+        <div class="actions">
+            <button class="secondary-btn" (click)="previousStep()">
+                Back
+            </button>
+
+            <button class="primary-btn" [disabled]="!isStep2Valid" (click)="nextStep()">
+                Review
+            </button>
+        </div>
+
+    </section>
+
+    <!-- STEP 3: Review and Submit -->
+    <section *ngIf="currentStep === 3">
+
+        <h3>Review Visitor Details</h3>
+
+        <div class="review-section">
+
+            <div class="review-heading">
+                <h4>Visitor Information</h4>
+                <button class="edit-btn" (click)="editStep(1)">
+                    Edit
+                </button>
+            </div>
+
+            <div class="review-row">
+                <span>Name</span>
+                <strong>{{ visitorName }}</strong>
+            </div>
+
+            <div class="review-row">
+                <span>Contact</span>
+                <strong>{{ contact }}</strong>
+            </div>
+
+        </div>
+
+        <div class="review-section">
+
+            <div class="review-heading">
+                <h4>Visit Information</h4>
+                <button class="edit-btn" (click)="editStep(2)">
+                    Edit
+                </button>
+            </div>
+
+            <div class="review-row">
+                <span>Purpose</span>
+                <strong>{{ purpose }}</strong>
+            </div>
+
+            <div class="review-row">
+                <span>Host</span>
+                <strong>{{ selectedHost?.name }}</strong>
+            </div>
+
+            <div class="review-row">
+                <span>Employee ID</span>
+                <strong>{{ selectedHostEmployee }}</strong>
+            </div>
+
+        </div>
+
+        <div class="pending-note">
+            This visitor will be registered with PENDING status.
+        </div>
+
+        <div class="actions">
+            <button class="secondary-btn" (click)="previousStep()">
+                Back
+            </button>
+
+            <button class="primary-btn" (click)="submitVisit()">
+                Submit Registration
+            </button>
+        </div>
+
+    </section>
+</div>

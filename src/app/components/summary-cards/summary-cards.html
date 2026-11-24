@@ -1,0 +1,68 @@
+<div class="summary-cards">
+
+    <!-- Total Visitors -->
+    <div class="summary-card total-card">
+        <div class="card-top">
+            <div class="card-icon total-icon">
+                <svg viewBox="0 0 24 24">
+                    <path d="M16 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2" />
+                    <circle cx="10" cy="7" r="4" />
+                    <path d="M20 21v-2a4 4 0 0 0-3-3.87" />
+                    <path d="M16 3.13a4 4 0 0 1 0 7.75" />
+                </svg>
+            </div>
+            <span class="card-label">TOTAL VISITORS</span>
+        </div>
+        <h2>{{ totalVisitors }}</h2>
+        <p class="card-description">All registered visitors</p>
+    </div>
+
+    <!-- Pending -->
+    <div class="summary-card pending-card">
+        <div class="card-top">
+            <div class="card-icon pending-icon">
+                <svg viewBox="0 0 24 24">
+                    <circle cx="12" cy="12" r="9" />
+                    <path d="M12 7v5l3 2" />
+                </svg>
+            </div>
+            <span class="card-label">PENDING</span>
+        </div>
+        <h2>{{ pendingVisitors }}</h2>
+        <p class="card-description">Awaiting host approval</p>
+    </div>
+
+    <!-- Approved -->
+    <div class="summary-card approved-card">
+        <div class="card-top">
+            <div class="card-icon approved-icon">
+                <svg viewBox="0 0 24 24">
+                    <path d="m5 12 4 4L19 6" />
+                    <circle cx="12" cy="12" r="10" />
+                </svg>
+            </div>
+            <span class="card-label">APPROVED</span>
+        </div>
+        <h2>{{ approvedVisitors }}</h2>
+        <p class="card-description">Visitors approved by hosts</p>
+    </div>
+
+    <!-- On Premises -->
+    <div class="summary-card premises-card">
+        <div class="card-top">
+            <div class="card-icon premises-icon">
+                <svg viewBox="0 0 24 24">
+                    <path d="M3 21h18" />
+                    <path d="M5 21V7l8-4v18" />
+                    <path d="M19 21V11l-6-4" />
+                    <path d="M9 9v.01M9 13v.01M9 17v.01" />
+                    <path d="M16 15v.01M16 18v.01" />
+                </svg>
+            </div>
+            <span class="card-label">ON PREMISES</span>
+        </div>
+        <h2>{{ insideVisitors }}</h2>
+        <p class="card-description">Currently checked in</p>
+    </div>
+
+</div>

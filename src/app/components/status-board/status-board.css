@@ -1,0 +1,219 @@
+:host {
+    display: block;
+    width: 100%;
+}
+
+* {
+    box-sizing: border-box;
+}
+
+/* MAIN BOARD */
+.status-board {
+    width: 100%;
+    margin-top: 25px;
+    padding: 25px 26px;
+
+    background: #ffffff;
+    border: 1px solid #e7ecf3;
+    border-radius: 12px;
+
+    box-shadow: 0 3px 12px rgba(15, 23, 42, 0.04);
+}
+
+/* HEADER */
+.board-header {
+    margin-bottom: 22px;
+}
+
+.board-header h2 {
+    margin: 0;
+    color: #172238;
+    font-size: 19px;
+    font-weight: 700;
+    letter-spacing: -0.3px;
+}
+
+.board-header p {
+    margin: 7px 0 0;
+    color: #8792a4;
+    font-size: 12px;
+}
+
+/* TABLE */
+.table-container {
+    width: 100%;
+    overflow-x: auto;
+    border: 1px solid #edf0f5;
+    border-radius: 9px;
+}
+
+table {
+    width: 100%;
+    min-width: 750px;
+    border-collapse: collapse;
+    background: #ffffff;
+}
+
+thead {
+    background: #f7f9fc;
+}
+
+th {
+    padding: 15px 16px;
+    color: #66748a;
+    font-size: 11px;
+    font-weight: 700;
+    text-align: left;
+    text-transform: uppercase;
+    letter-spacing: 0.4px;
+    white-space: nowrap;
+    border-bottom: 1px solid #e9edf3;
+}
+
+td {
+    padding: 16px;
+    color: #344258;
+    font-size: 12px;
+    font-weight: 500;
+    border-bottom: 1px solid #edf0f5;
+    white-space: nowrap;
+}
+
+tbody tr {
+    transition: background 0.2s ease;
+}
+
+tbody tr:hover {
+    background: #f9fbfe;
+}
+
+tbody tr:last-child td {
+    border-bottom: none;
+}
+
+/* STATUS CHIPS */
+.status {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 6px 11px;
+    border-radius: 20px;
+    font-size: 10px;
+    font-weight: 700;
+    letter-spacing: 0.2px;
+}
+
+.pending {
+    background: #fff4dc;
+    color: #a66b0b;
+}
+
+.approved {
+    background: #e5f7ed;
+    color: #16804a;
+}
+
+.denied {
+    background: #ffebeb;
+    color: #c03939;
+}
+
+.checked_in {
+    background: #e8f1ff;
+    color: #2859a5;
+}
+
+.checked_out {
+    background: #eef0f3;
+    color: #667085;
+}
+
+/* ACTION BUTTONS */
+td.actions {
+    display: flex;
+    align-items: center;
+    gap: 7px;
+}
+
+.actions button {
+    min-height: 30px;
+    padding: 0 11px;
+
+    border: 1px solid transparent;
+    border-radius: 6px;
+
+    font-family: inherit;
+    font-size: 11px;
+    font-weight: 600;
+
+    cursor: pointer;
+    transition: all 0.2s ease;
+}
+
+.approve {
+    background: #e8f7ee;
+    color: #16804a;
+    border-color: #d2efdd !important;
+}
+
+.approve:hover {
+    background: #d5f0df;
+}
+
+.reject {
+    background: #fff0f0;
+    color: #c03939;
+    border-color: #f8dada !important;
+}
+
+.reject:hover {
+    background: #ffe0e0;
+}
+
+.check-in {
+    background: #eaf1ff;
+    color: #2859a5;
+    border-color: #d9e5ff !important;
+}
+
+.check-in:hover {
+    background: #dbe7ff;
+}
+
+.check-out {
+    background: #eef0f3;
+    color: #586579;
+    border-color: #dfe3e9 !important;
+}
+
+.visitor-name {
+    color: #24334b;
+    font-weight: 700;
+}
+
+.check-out:hover {
+    background: #e1e5eb;
+}
+
+/* EMPTY STATE */
+.empty-state {
+    padding: 35px 20px;
+    color: #8792a4;
+    font-size: 13px;
+    text-align: center;
+}
+
+/* RESPONSIVE */
+@media (max-width: 600px) {
+    .status-board {
+        padding: 18px 14px;
+    }
+
+    .board-header h2 {
+        font-size: 17px;
+    }
+
+    .table-container {
+        border-radius: 7px;
+    }
+}
